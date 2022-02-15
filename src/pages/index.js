@@ -37,6 +37,7 @@ const Home = ({ data }) => {
                   ? article.body.summary
                   : article.body.processed.substring(0, 300)
               }
+              tags={article.relationships.field_tags}
             />
           ))}
         </Container>
@@ -69,6 +70,10 @@ export const pageQuery = graphql`
                 gatsbyImageData(width: 600)
               }
             }
+          }
+          field_tags {
+            id
+            name
           }
         }
       }
